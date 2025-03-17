@@ -52,7 +52,7 @@ export default [
       "import/no-default-export": [ "error" ],
       "import/no-unresolved": [ "error", { ignore: [ "^(?:@|enderverse|@discordjs|discord-api-types)/" ] } ],
       "no-nested-ternary": "off",
-      "path-alias/no-relative-parent-imports": [ "error" ],
+      "path-alias/no-relative": [ "error" ],
       "prefer-const": "error",
       "quotes": [ "error", "double" ],
       "semi": [ "error", "never" ],
