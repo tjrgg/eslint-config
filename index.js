@@ -10,13 +10,15 @@ import tsParser from "@typescript-eslint/parser"
 export default [
   eslintConfigPrettier,
   eslintPluginUnicorn.configs.recommended,
-  {
-    files: [ "**/*.js", "**/*.ts" ],
+  {    
     ignores: [
       "**/*.config.js",
-      "dist",
-      "node_modules",
+      "dist/**/*",
+      "node_modules/**/*",
     ],
+  },
+  {
+    files: [ "**/*.js", "**/*.ts" ],
     languageOptions: {
       globals: globals.builtin,
       parser: tsParser,
@@ -113,4 +115,4 @@ export default [
       "unicorn/throw-new-error": [ "error" ]
     },
   },
-] 
+]
