@@ -1,12 +1,12 @@
-import eslintConfigPrettier from "eslint-config-prettier"
-import eslintPluginImport from "eslint-plugin-import"
-import eslintPluginSimpleImportSort from "eslint-plugin-simple-import-sort"
-import eslintPluginPathAlias from "eslint-plugin-path-alias"
-import eslintPluginUnicorn from "eslint-plugin-unicorn"
 import globals from "globals"
+import import_ from "eslint-plugin-import"
+import parser from "@typescript-eslint/parser"
+import pathAlias from "eslint-plugin-path-alias"
+import prettier from "eslint-config-prettier"
+import simpleImportSort from "eslint-plugin-simple-import-sort"
 import stylistic from "@stylistic/eslint-plugin"
 import typescript from "@typescript-eslint/eslint-plugin"
-import tsParser from "@typescript-eslint/parser"
+import unicorn from "eslint-plugin-unicorn"
 
 export default [
   {    
@@ -16,14 +16,15 @@ export default [
       "node_modules/**/*",
     ],
   },
-  eslintConfigPrettier,
-  eslintPluginStylistic.configs.recommended,
-  eslintPluginUnicorn.configs.recommended,
+  prettier,
+  import_.configs.recommended,
+  stylistic.configs.recommended,
+  unicorn.configs.recommended,
   {
     files: [ "**/*.js", "**/*.ts" ],
     languageOptions: {
       globals: globals.builtin,
-      parser: tsParser,
+      parser: parser,
       parserOptions: {
         project: true,
       },
@@ -31,9 +32,9 @@ export default [
     plugins: {
       "@stylistic": stylistic,
       "@typescript-eslint": typescript,
-      "import": eslintPluginImport,
-      "simple-import-sort": eslintPluginSimpleImportSort,
-      "path-alias": eslintPluginPathAlias,
+      "import": import_,
+      "simple-import-sort": simpleImportSort,
+      "path-alias": pathAlias,
     },
     rules: {
       "@stylistic/array-bracket-spacing": [ "error", "always" ],
@@ -47,7 +48,10 @@ export default [
       "@typescript-eslint/no-misused-promises": [ "error", { checksVoidReturn: { attributes: false } } ],
       "@typescript-eslint/no-unused-vars": [ "warn", { argsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_", varsIgnorePattern: "^_" } ],
       "import/consistent-type-specifier-style": [ "error", "prefer-inline" ],
+      "import/first": [ "error" ],
+      "import/newline-after-import": [ "error", { count: 1 } ],
       "import/no-default-export": [ "error" ],
+      "import/no-duplicates": [ "error" ],
       "import/no-unresolved": [ "error", { ignore: [ "^(?:@|enderverse|@discordjs|discord-api-types)/" ] } ],
       "no-nested-ternary": [ "error" ],
       "no-useless-catch": [ "error" ],
@@ -59,7 +63,7 @@ export default [
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": "error",
       "sort-keys": [ "error", { allowLineSeparatedGroups: true, caseSensitive: false, minKeys: 2, natural: true } ],
-      "sort-imports": [ "error", { allowSeparatedGroups: true, ignoreDeclarationSort: true } ],
+      // "sort-imports": [ "error", { allowSeparatedGroups: true, ignoreDeclarationSort: true } ],
       "sort-vars": [ "error", { ignoreCase: false } ],
       "symbol-description": [ "error" ],
       "unicorn/better-regex": [ "error" ],
