@@ -2,7 +2,7 @@ import globals from "globals"
 import import_ from "eslint-plugin-import"
 import parser from "@typescript-eslint/parser"
 import pathAlias from "eslint-plugin-path-alias"
-import prettier from "eslint-config-prettier"
+// import prettier from "eslint-config-prettier"
 import simpleImportSort from "eslint-plugin-simple-import-sort"
 import stylistic from "@stylistic/eslint-plugin"
 import typescript from "@typescript-eslint/eslint-plugin"
@@ -16,8 +16,8 @@ export default [
       "node_modules/**/*",
     ],
   },
-  prettier,
-  import_.configs.recommended,
+  // prettier,
+  // import_.configs.recommended,
   stylistic.configs.recommended,
   unicorn.configs.recommended,
   {
@@ -37,35 +37,48 @@ export default [
       "path-alias": pathAlias,
     },
     rules: {
+      // General
+      "no-nested-ternary": [ "error" ],
+      "no-useless-catch": [ "error" ],
+      "no-useless-concat": [ "error" ],
+      "prefer-const": [ "error" ],
+      "prefer-spread": [ "error" ],
+      "prefer-template": [ "error" ],
+      "symbol-description": [ "error" ],
+      
+      // Stylistic
       "@stylistic/array-bracket-spacing": [ "error", "always" ],
       "@stylistic/indent": [ "error", 2 ],
       "@stylistic/object-curly-spacing": [ "error", "always" ],
       "@stylistic/quotes": [ "error", "double" ],
       "@stylistic/semi": [ "error", "never" ],
+      
+      // TypeScript
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",
       "@typescript-eslint/consistent-type-imports": [ "warn", { fixStyle: "inline-type-imports", prefer: "type-imports" } ],
       "@typescript-eslint/no-misused-promises": [ "error", { checksVoidReturn: { attributes: false } } ],
       "@typescript-eslint/no-unused-vars": [ "warn", { argsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_", varsIgnorePattern: "^_" } ],
+      
+      // Import
       "import/consistent-type-specifier-style": [ "error", "prefer-inline" ],
       "import/first": [ "error" ],
       "import/newline-after-import": [ "error", { count: 1 } ],
       "import/no-default-export": [ "error" ],
       "import/no-duplicates": [ "error" ],
       "import/no-unresolved": [ "error", { ignore: [ "^(?:@|enderverse|@discordjs|discord-api-types)/" ] } ],
-      "no-nested-ternary": [ "error" ],
-      "no-useless-catch": [ "error" ],
-      "no-useless-concat": [ "error" ],
-      "path-alias/no-relative": [ "error" ],
-      "prefer-const": [ "error" ],
-      "prefer-spread": [ "error" ],
-      "prefer-template": [ "error" ],
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": "error",
-      "sort-keys": [ "error", { allowLineSeparatedGroups: true, caseSensitive: false, minKeys: 2, natural: true } ],
+      
+      // Path Alias
+      "path-alias/no-relative": [ "error" ],
+      
+      // Sorting
+      "sort-keys": [ "error", "asc",{ allowLineSeparatedGroups: true, caseSensitive: false, minKeys: 2, natural: true } ],
       // "sort-imports": [ "error", { allowSeparatedGroups: true, ignoreDeclarationSort: true } ],
       "sort-vars": [ "error", { ignoreCase: false } ],
-      "symbol-description": [ "error" ],
+      
+      // Unicorn
       "unicorn/better-regex": [ "error" ],
       "unicorn/catch-error-name": [ "error" ],
       "unicorn/consistent-function-scoping": [ "error" ],
