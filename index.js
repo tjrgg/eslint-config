@@ -4,12 +4,11 @@ import eslintPluginSimpleImportSort from "eslint-plugin-simple-import-sort"
 import eslintPluginPathAlias from "eslint-plugin-path-alias"
 import eslintPluginUnicorn from "eslint-plugin-unicorn"
 import globals from "globals"
-import tseslint from "@typescript-eslint/eslint-plugin"
+import stylistic from "@stylistic/eslint-plugin"
+import typescript from "@typescript-eslint/eslint-plugin"
 import tsParser from "@typescript-eslint/parser"
 
 export default [
-  eslintConfigPrettier,
-  eslintPluginUnicorn.configs.recommended,
   {    
     ignores: [
       "**/*.config.js",
@@ -17,6 +16,9 @@ export default [
       "node_modules/**/*",
     ],
   },
+  eslintConfigPrettier,
+  eslintPluginStylistic.configs.recommended,
+  eslintPluginUnicorn.configs.recommended,
   {
     files: [ "**/*.js", "**/*.ts" ],
     languageOptions: {
@@ -27,39 +29,39 @@ export default [
       },
     },
     plugins: {
-      "@typescript-eslint": tseslint,
+      "@stylistic": stylistic,
+      "@typescript-eslint": typescript,
       "import": eslintPluginImport,
       "simple-import-sort": eslintPluginSimpleImportSort,
       "path-alias": eslintPluginPathAlias,
     },
     rules: {
+      "@stylistic/array-bracket-spacing": [ "error", "always" ],
+      "@stylistic/indent": [ "error", 2 ],
+      "@stylistic/object-curly-spacing": [ "error", "always" ],
+      "@stylistic/quotes": [ "error", "double" ],
+      "@stylistic/semi": [ "error", "never" ],
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",
-      "@typescript-eslint/consistent-type-imports": [
-        "warn",
-        {
-          fixStyle: "inline-type-imports",
-          prefer: "type-imports",
-        },
-      ],
+      "@typescript-eslint/consistent-type-imports": [ "warn", { fixStyle: "inline-type-imports", prefer: "type-imports" } ],
       "@typescript-eslint/no-misused-promises": [ "error", { checksVoidReturn: { attributes: false } } ],
-      "@typescript-eslint/no-unused-vars": [ "warn",
-        {
-          argsIgnorePattern: "^_",
-          caughtErrorsIgnorePattern: "^_",
-          varsIgnorePattern: "^_",
-        }
-      ],
+      "@typescript-eslint/no-unused-vars": [ "warn", { argsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_", varsIgnorePattern: "^_" } ],
       "import/consistent-type-specifier-style": [ "error", "prefer-inline" ],
       "import/no-default-export": [ "error" ],
       "import/no-unresolved": [ "error", { ignore: [ "^(?:@|enderverse|@discordjs|discord-api-types)/" ] } ],
-      "no-nested-ternary": "off",
+      "no-nested-ternary": [ "error" ],
+      "no-useless-catch": [ "error" ],
+      "no-useless-concat": [ "error" ],
       "path-alias/no-relative": [ "error" ],
-      "prefer-const": "error",
-      "quotes": [ "error", "double" ],
-      "semi": [ "error", "never" ],
+      "prefer-const": [ "error" ],
+      "prefer-spread": [ "error" ],
+      "prefer-template": [ "error" ],
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": "error",
+      "sort-keys": [ "error", { allowLineSeparatedGroups: true, caseSensitive: false, minKeys: 2, natural: true } ],
+      "sort-imports": [ "error", { allowSeparatedGroups: true, ignoreDeclarationSort: true } ],
+      "sort-vars": [ "error", { ignoreCase: false } ],
+      "symbol-description": [ "error" ],
       "unicorn/better-regex": [ "error" ],
       "unicorn/catch-error-name": [ "error" ],
       "unicorn/consistent-function-scoping": [ "error" ],
@@ -69,15 +71,7 @@ export default [
       "unicorn/expiring-todo-comments": [ "error" ],
       "unicorn/explicit-length-check": [ "error" ],
       "unicorn/filename-case": [ "error", { "cases": { camelCase: true, kebabCase: true, pascalCase: true } } ],
-      "unicorn/import-style": [ "error",
-        {
-          "styles": {
-            "node:path": {
-              "named": true
-            },
-          }
-        }
-      ],
+      "unicorn/import-style": [ "error", { "styles": { "node:path": { "named": true } } } ],
       "unicorn/new-for-builtins": [ "error" ],
       "unicorn/no-abusive-eslint-disable": [ "error" ],
       "unicorn/no-console-spaces": [ "error" ],
