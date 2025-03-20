@@ -66,7 +66,7 @@ export default [
       "import/newline-after-import": [ "error", { count: 1 } ],
       "import/no-default-export": [ "error" ],
       "import/no-duplicates": [ "error" ],
-      "import/no-unresolved": [ "error", { ignore: [ "^(?:@|enderverse|@discordjs|discord-api-types)/" ] } ],
+      "import/no-unresolved": [ "error" ],
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": "error",
       
