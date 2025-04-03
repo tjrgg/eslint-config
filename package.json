@@ -32,5 +32,8 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "eslint-import-resolver-typescript": "^4.3.1"
   }
 }

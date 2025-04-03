@@ -36,6 +36,22 @@ export default [
       "simple-import-sort": simpleImportSort,
       "path-alias": pathAlias,
     },
+    settings: {
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+          project: "./tsconfig.json",
+        },
+        node: {
+          extensions: [".js", ".jsx", ".ts", ".tsx"],
+        },
+      },
+      "path-alias": {
+        map: [
+          ["@", "./src"],
+        ],
+      },
+    },
     rules: {
       // General
       "no-nested-ternary": [ "error" ],
