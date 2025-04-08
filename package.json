@@ -1,6 +1,6 @@
 {
   "name": "@tjrgg/eslint-config",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "author": "tjrgg",
   "description": "ESLint configuration for TypeScript projects",
   "repository": "https://github.com/tjrgg/eslint-config",
