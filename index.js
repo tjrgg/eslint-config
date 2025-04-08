@@ -71,6 +71,7 @@ export default [
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",
       "@typescript-eslint/consistent-type-imports": [ "warn", { fixStyle: "inline-type-imports", prefer: "type-imports" } ],
+      "@typescript-eslint/explicit-member-accessibility": ["error", { accessibility: "explicit" }],
       "@typescript-eslint/no-misused-promises": [ "error", { checksVoidReturn: { attributes: false } } ],
       "@typescript-eslint/no-unused-vars": [ "warn", { argsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_", varsIgnorePattern: "^_" } ],
       
