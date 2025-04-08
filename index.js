@@ -63,6 +63,7 @@ export default [
       // Stylistic
       "@stylistic/array-bracket-spacing": [ "error", "always" ],
       "@stylistic/indent": [ "error", 2 ],
+      "@stylistic/no-multiple-empty-lines": ["error", { max: 2, maxEOF: 0 }],
       "@stylistic/object-curly-spacing": [ "error", "always" ],
       "@stylistic/quotes": [ "error", "double" ],
       "@stylistic/semi": [ "error", "never" ],
