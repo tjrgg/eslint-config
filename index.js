@@ -84,8 +84,8 @@ export default [
       "import/no-default-export": [ "error" ],
       "import/no-duplicates": [ "error" ],
       // "import/no-unresolved": [ "error" ],
-      "simple-import-sort/exports": "error",
-      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": [ "error" ],
+      "simple-import-sort/imports": [ "error" ],
       
       // Path Alias
       "path-alias/no-relative": [ "error" ],
