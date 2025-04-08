@@ -19,7 +19,6 @@
   ],
   "scripts": {
     "git:push": "git push && git push --tags",
-    "npm:login": "pnpm login --registry=https://npm.pkg.github.com",
     "postversion": "pnpm run git:push"
   },
   "dependencies": {
