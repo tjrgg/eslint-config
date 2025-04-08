@@ -1,5 +1,4 @@
 import globals from "globals"
-import import_ from "eslint-plugin-import"
 import parser from "@typescript-eslint/parser"
 import pathAlias from "eslint-plugin-path-alias"
 // import prettier from "eslint-config-prettier"
@@ -17,7 +16,6 @@ export default [
     ],
   },
   // prettier,
-  // import_.configs.recommended,
   stylistic.configs.recommended,
   unicorn.configs.recommended,
   {
@@ -32,20 +30,10 @@ export default [
     plugins: {
       "@stylistic": stylistic,
       "@typescript-eslint": typescript,
-      "import": import_,
       "simple-import-sort": simpleImportSort,
       "path-alias": pathAlias,
     },
     settings: {
-      "import/resolver": {
-        node: {
-          extensions: [".js", ".jsx", ".ts", ".tsx"],
-        },
-        typescript: {
-          alwaysTryTypes: true,
-          project: true,
-        },
-      },
       "path-alias": {
         map: [["@", "./src"]],
       },
@@ -53,6 +41,7 @@ export default [
     rules: {
       // General
       "no-nested-ternary": [ "error" ],
+      "no-unused-imports": [ "error" ],
       "no-useless-catch": [ "error" ],
       "no-useless-concat": [ "error" ],
       "prefer-const": [ "error" ],
@@ -76,19 +65,12 @@ export default [
       "@typescript-eslint/no-misused-promises": [ "error", { checksVoidReturn: { attributes: false } } ],
       "@typescript-eslint/no-unused-vars": [ "warn", { argsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_", varsIgnorePattern: "^_" } ],
       
-      // Import
-      "import/consistent-type-specifier-style": [ "error", "prefer-inline" ],
-      "import/first": [ "error" ],
-      "import/newline-after-import": [ "error", { count: 1 } ],
-      "import/no-commonjs": [ "error" ],
-      "import/no-default-export": [ "error" ],
-      "import/no-duplicates": [ "error" ],
-      // "import/no-unresolved": [ "error" ],
-      "simple-import-sort/exports": [ "error" ],
-      "simple-import-sort/imports": [ "error" ],
-      
       // Path Alias
       "path-alias/no-relative": [ "error" ],
+      
+      // Simple Import Sort
+      "simple-import-sort/exports": [ "error" ],
+      "simple-import-sort/imports": [ "error" ],
       
       // Sorting
       "sort-keys": [ "error", "asc",{ allowLineSeparatedGroups: true, caseSensitive: false, minKeys: 2, natural: true } ],
