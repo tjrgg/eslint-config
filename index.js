@@ -38,18 +38,16 @@ export default [
     },
     settings: {
       "import/resolver": {
-        typescript: {
-          alwaysTryTypes: true,
-          project: "./tsconfig.json",
-        },
         node: {
           extensions: [".js", ".jsx", ".ts", ".tsx"],
         },
+        typescript: {
+          alwaysTryTypes: true,
+          project: true,
+        },
       },
       "path-alias": {
-        map: [
-          ["@", "./src"],
-        ],
+        map: [["@", "./src"]],
       },
     },
     rules: {
@@ -80,9 +78,10 @@ export default [
       "import/consistent-type-specifier-style": [ "error", "prefer-inline" ],
       "import/first": [ "error" ],
       "import/newline-after-import": [ "error", { count: 1 } ],
+      "import/no-commonjs": [ "error" ],
       "import/no-default-export": [ "error" ],
       "import/no-duplicates": [ "error" ],
-      "import/no-unresolved": [ "error" ],
+      // "import/no-unresolved": [ "error" ],
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": "error",
       
