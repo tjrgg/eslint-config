@@ -41,7 +41,6 @@ export default [
     rules: {
       // General
       "no-nested-ternary": [ "error" ],
-      "no-unused-imports": [ "error" ],
       "no-useless-catch": [ "error" ],
       "no-useless-concat": [ "error" ],
       "prefer-const": [ "error" ],
