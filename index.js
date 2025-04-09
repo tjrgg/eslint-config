@@ -1,7 +1,6 @@
 import globals from "globals"
 import parser from "@typescript-eslint/parser"
 import pathAlias from "eslint-plugin-path-alias"
-// import prettier from "eslint-config-prettier"
 import simpleImportSort from "eslint-plugin-simple-import-sort"
 import stylistic from "@stylistic/eslint-plugin"
 import typescript from "@typescript-eslint/eslint-plugin"
@@ -15,7 +14,6 @@ export default [
       "node_modules/**/*",
     ],
   },
-  // prettier,
   stylistic.configs.recommended,
   unicorn.configs.recommended,
   {
@@ -26,6 +24,7 @@ export default [
       parserOptions: {
         project: true,
       },
+      sourceType: "module",
     },
     plugins: {
       "@stylistic": stylistic,
@@ -50,11 +49,11 @@ export default [
       
       // Stylistic
       "@stylistic/array-bracket-spacing": [ "error", "always" ],
-      "@stylistic/indent": [ "error", 2 ],
+      // "@stylistic/indent": [ "error", 2 ],
       "@stylistic/no-multiple-empty-lines": ["error", { max: 2, maxEOF: 0 }],
       "@stylistic/object-curly-spacing": [ "error", "always" ],
-      "@stylistic/quotes": [ "error", "double" ],
-      "@stylistic/semi": [ "error", "never" ],
+      // "@stylistic/quotes": [ "error", "double" ],
+      // "@stylistic/semi": [ "error", "never" ],
       
       // TypeScript
       "@typescript-eslint/array-type": "off",
